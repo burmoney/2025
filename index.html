@@ -22,21 +22,21 @@
       animation: neonPulse 2s infinite alternate;
     }
 
-    /* Background video full coverage styles */
+    /* Updated styles for background video to cover full screen */
     #player {
-      position: fixed;
+      position: fixed; /* Fix in place */
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
+      z-index: -1; /* Behind all content */
       overflow: hidden;
     }
   </style>
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col justify-between">
 
-  <!-- Main Content Spacer -->
+  <!-- Optional main content -->
   <div class="flex-1"></div>
 
   <!-- WhatsApp Button -->
@@ -55,9 +55,9 @@
 
   <!-- Modal for input -->
   <div id="inputModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-60">
-    <div class="bg-white p-4 sm:p-6 rounded-lg max-w-xs w-full relative shadow-lg">
-      <button id="closeInputModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">&times;</button>
-      <h2 class="text-xl sm:text-2xl font-semibold mb-4 text-center">Send a message via WhatsApp</h2>
+    <div class="bg-white p-6 rounded-lg max-w-sm w-full relative shadow-lg">
+      <button id="closeInputModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">×</button>
+      <h2 class="text-xl font-semibold mb-4 text-center">Send a message via WhatsApp</h2>
       <input
         type="text"
         id="messageInput"
@@ -74,16 +74,16 @@
   </div>
 
   <!-- YouTube background video -->
-  <div id="player" class="fixed inset-0"></div>
+  <div id="player"></div>
 
   <!-- "New Drop In" Section with countdown -->
-  <section class="p-4 pt-24 md:pt-28 text-center bg-black bg-opacity-50">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">🔥 New Drop In 🔥</h2>
-    <div id="countdown" class="text-4xl md:text-5xl font-bold text-white"></div>
+  <section class="p-4 pt-28 text-center">
+    <h2 class="text-3xl font-bold mb-4 text-white">🔥 New Drop In 🔥</h2>
+    <div id="countdown" class="text-4xl font-bold text-white"></div>
   </section>
 
   <!-- Google Form -->
-  <form id="custom-google-form" class="max-w-md mx-auto p-4 bg-gray-800 rounded m-4" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfHJzURmhELJ1sudgTCEY9IfsiP4oZtousiAtxoW78c01oIhA/formResponse" method="POST" target="_self">
+  <form id="custom-google-form" class="max-w-md mx-auto p-4 bg-gray-800 rounded" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfHJzURmhELJ1sudgTCEY9IfsiP4oZtousiAtxoW78c01oIhA/formResponse" method="POST" target="_self">
     <label for="name" class="block mt-4 font-semibold text-white">Name:</label>
     <input type="text" id="name" name="entry.471881339" placeholder="Your Name" class="w-full p-2 rounded" required />
 
@@ -93,7 +93,7 @@
     <label for="phone" class="block mt-4 font-semibold text-white">Phone Number:</label>
     <input type="text" id="phone" name="entry.1110578890" placeholder="Your Phone Number" class="w-full p-2 rounded" required />
 
-    <button type="submit" class="mt-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded w-full">Submit</button>
+    <button type="submit" class="mt-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded">Submit</button>
   </form>
 
   <!-- Overlay popup for next steps -->
@@ -109,9 +109,8 @@
   <script src="https://www.youtube.com/iframe_api"></script>
 
   <script>
-    // YouTube Player setup
-    let player;
-    function onYouTubeIframeAPIReady() {
+    // Make onYouTubeIframeAPIReady global
+    window.onYouTubeIframeAPIReady = function() {
       player = new YT.Player('player', {
         height: '100%',
         width: '100%',
@@ -138,7 +137,7 @@
           }
         }
       });
-    }
+    };
 
     // Countdown Timer
     const dropDate = new Date("2025-07-15T00:00:00").getTime();
