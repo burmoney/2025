@@ -109,9 +109,8 @@
   <script src="https://www.youtube.com/iframe_api"></script>
 
   <script>
-    // YouTube Player setup
-    let player;
-    function onYouTubeIframeAPIReady() {
+    // Make onYouTubeIframeAPIReady global
+    window.onYouTubeIframeAPIReady = function() {
       player = new YT.Player('player', {
         height: '100%',
         width: '100%',
@@ -138,7 +137,7 @@
           }
         }
       });
-    }
+    };
 
     // Countdown Timer
     const dropDate = new Date("2025-07-15T00:00:00").getTime();
@@ -198,6 +197,5 @@
       inputModal.classList.add('hidden');
     });
   </script>
-
 </body>
 </html>
