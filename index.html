@@ -1,3 +1,18 @@
+CodePen Home
+Untitled
+jesusc
+Love
+Save
+
+Settings
+
+
+
+User Menu
+HTML
+0 unsaved changes 
+
+HTML Options
 <!DOCTYPE html>
 <html lang="en" class="bg-white">
 <head>
@@ -153,14 +168,7 @@
 
     <button type="submit" class="mt-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded">Submit</button>
   </form>
-
-  <!-- Overlay popup for next steps -->
-  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden" id="nextStepsOverlay">
-    <div class="bg-white p-6 rounded max-w-lg mx-auto text-center relative">
-      <h3 class="text-xl font-bold mb-4">Next Steps</h3>
-      <p class="mb-4">Please fill out the form with your Name, Email, and Phone number. Review your details before submitting. After submission, check your email for confirmation.</p>
-      <button class="bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded" id="closeNextSteps">Got it</button>
-    </div>
+ 
 
 
       <!-- Footer -->
@@ -233,3 +241,100 @@
   </script>
 </body>
 </html>
+169
+    // Countdown Timer
+170
+    const dropDate = new Date("2025-07-15T00:00:00").getTime();
+171
+    const countdownEl = document.getElementById("countdown");
+172
+    setInterval(() => {
+173
+      const now = new Date().getTime();
+174
+      const distance = dropDate - now;
+175
+      if (distance <= 0) {
+176
+        countdownEl.textContent = "🔥 Live Now!";
+177
+        return;
+178
+      }
+179
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+180
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+181
+      const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+182
+      const secs = Math.floor((distance % (1000 * 60)) / 1000);
+183
+      countdownEl.textContent = `${days}d ${hours}h ${mins}m ${secs}s`;
+184
+    }, 1000);
+185
+  </script>
+186
+​
+187
+  <!-- Overlay close script for Next Steps -->
+188
+  <script>
+189
+    document.getElementById('closeNextSteps').addEventListener('click', () => {
+190
+      document.getElementById('nextStepsOverlay').classList.add('hidden');
+191
+    });
+192
+  </script>
+193
+​
+194
+  <!-- WhatsApp interaction -->
+195
+  <script>
+196
+    const waBtn = document.getElementById('waButton');
+197
+    const inputModal = document.getElementById('inputModal');
+198
+    const closeInputModal = document.getElementById('closeInputModal');
+199
+    const sendWhatsAppBtn = document.getElementById('sendWhatsApp');
+200
+    const messageInput = document.getElementById('messageInput');
+201
+​
+202
+    // Open modal on WhatsApp button click
+203
+    waBtn.addEventListener('click', () => {
+204
+      inputModal.classList.remove('hidden');
+205
+    });
+206
+​
+CSS
+
+CSS Options
+1
+​
+JS
+
+JS Options
+1
+​
+!
+
+Last saved less than a minute ago
+
+Delete
+Add to Collection
+Fork
+Embed
+Export
+Share
+ConsoleAssetsComments
