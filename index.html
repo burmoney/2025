@@ -9,6 +9,19 @@
   <script src="https://cdn.tailwindcss.com"></script> 
 
   <style>
+
+
+
+    body {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1dHs2cBu8zMIshEZVYUl0oz_Yhfch6cxMhw&s');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
+
     /* Neon Pulse Animation for WhatsApp Button */
     @keyframes neonPulse {
       0%, 100% {
@@ -22,7 +35,7 @@
       animation: neonPulse 2s infinite alternate;
     }
 
-    /* Updated styles for background video to cover full screen */
+    /* Background video styles */
     #player {
       position: fixed; /* Fix in place */
       top: 0;
@@ -34,13 +47,14 @@
     }
   </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col justify-between">
+<body class="bg-gray-100 min-h-screen flex flex-col justify-between" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzCIvc4zy9gzcsBJ-OkiHJl-mMuDIeyJ17rw&s'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 
   <!-- Optional main content -->
   <div class="flex-1"></div>
 
-  <!-- WhatsApp Button -->
+  <!-- Social icons container -->
   <div class="fixed bottom-4 right-4 flex flex-col items-end space-y-3 z-50">
+    <!-- WhatsApp Button -->
     <button
       id="waButton"
       class="bg-[#25D366] p-4 rounded-full shadow-lg hover:scale-105 transition transform pulse-animation"
@@ -51,6 +65,19 @@
         <path d="M20.52 3.48A11.84 11.84 0 0012 0C5.37 0 0 5.37 0 12c0 2.12.55 4.2 1.58 6.02L0 24l5.98-1.58A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.24-6.15-3.48-8.52zm-8.52 17.36c-1.89 0-3.74-.5-5.36-1.45l-.38-.23-3.55.94.94-3.55-.23-.38A9.96 9.96 0 012 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.38-7.28c-.29-.15-1.72-.85-1.99-.94-.27-.09-.46-.15-.66.15-.2.3-.77.94-.94 1.14-.17.2-.33.22-.62.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.3-.02-.46.13-.61.13-.13.3-.33.45-.49.15-.16.2-.27.33-.43.13-.16.07-.3-.03-.43-.09-.09-.66-1.6-.9-2.19-.24-.58-.49-.5-.66-.51-.17-.01-.36-.02-.55-.02-.19 0-.49.07-.75.36-.26.29-1.02 1-1.02 2.44s1.05 2.83 1.2 3.03c.15.2 2.11 3.22 5.12 4.52.72.31 1.29.49 1.73.63.73.23 1.39.2 1.92.12.58-.09 1.72-.7 1.96-1.38.24-.68.24-1.27.17-1.38-.07-.11-.26-.16-.55-.31z"/>
       </svg>
     </button>
+    <!-- Facebook Link -->
+    <a
+      href="https://www.facebook.com/placosostudio.com.mx"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook Page"
+      class="bg-blue-600 p-4 rounded-full shadow-lg hover:scale-105 transition transform"
+    >
+      <!-- Facebook SVG -->
+      <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.495V14.708h-3.845v-3.622h3.845V8.413c0-3.829 2.338-5.913 5.755-5.913 1.636 0 3.214.122 3.638.177v4.217l-2.496.001c-1.956 0-2.336.932-2.336 2.297v3.012h4.674l-.609 3.622h-4.065V24h7.978c.729 0 1.326-.597 1.326-1.326V1.326C24 .597 23.403 0 22.675 0z"/>
+      </svg>
+    </a>
   </div>
 
   <!-- Modal for input -->
@@ -103,41 +130,7 @@
       <p class="mb-4">Please fill out the form with your Name, Email, and Phone number. Review your details before submitting. After submission, check your email for confirmation.</p>
       <button class="bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded" id="closeNextSteps">Got it</button>
     </div>
-  </div>
-
-  <!-- Load YouTube API -->
-  <script src="https://www.youtube.com/iframe_api"></script>
-
-  <script>
-    // Make onYouTubeIframeAPIReady global
-    window.onYouTubeIframeAPIReady = function() {
-      player = new YT.Player('player', {
-        height: '100%',
-        width: '100%',
-        videoId: 'QWUcxWfkXs8',
-        playerVars: {
-          autoplay: 1,
-          controls: 0,
-          showinfo: 0,
-          modestbranding: 1,
-          loop: 1,
-          playlist: 'QWUcxWfkXs8',
-          mute: 1,
-          fs: 0,
-          rel: 0,
-          autohide: 0
-        },
-        events: {
-          'onReady': (e) => e.target.playVideo(),
-          'onStateChange': (e) => {
-            if (e.data === YT.PlayerState.ENDED) {
-              player.seekTo(0);
-              player.playVideo();
-            }
-          }
-        }
-      });
-    };
+  
 
     // Countdown Timer
     const dropDate = new Date("2025-07-15T00:00:00").getTime();
