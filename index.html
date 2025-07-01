@@ -133,27 +133,40 @@
       document.getElementById('nextStepsOverlay').classList.add('hidden');
     });
 
-    // WhatsApp modal
+ 
+ 
+  </script>
+
+    <!-- WhatsApp interaction -->
+  <script>
     const waBtn = document.getElementById('waButton');
     const inputModal = document.getElementById('inputModal');
-    const closeInput = document.getElementById('closeInput');
-    const sendBtn = document.getElementById('sendWhatsApp');
+    const closeInputModal = document.getElementById('closeInputModal');
+    const sendWhatsAppBtn = document.getElementById('sendWhatsApp');
     const messageInput = document.getElementById('messageInput');
 
+    // Open modal on WhatsApp button click
     waBtn.addEventListener('click', () => {
       inputModal.classList.remove('hidden');
     });
-    document.getElementById('closeInput').addEventListener('click', () => {
+
+    // Close modal
+    document.getElementById('closeInputModal').addEventListener('click', () => {
       inputModal.classList.add('hidden');
     });
-    sendBtn.addEventListener('click', () => {
-      const msg = encodeURIComponent(messageInput.value.trim());
-      if (!msg) {
+
+    // Send message and open WhatsApp
+    document.getElementById('sendWhatsApp').addEventListener('click', () => {
+      const message = encodeURIComponent(messageInput.value.trim());
+      if (!message) {
         alert('Please type a message.');
         return;
       }
-      const phone = '+523322147756';
-      window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+      const phoneNumber = '+523322147756';
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+      window.open(whatsappURL, '_blank');
+
+      // Close modal after sending
       inputModal.classList.add('hidden');
     });
   </script>
