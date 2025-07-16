@@ -120,10 +120,17 @@ function allConsentGranted() {
 }
 </script>
 <!-- Invoke your consent function when a user interacts with your banner -->
-<body>
+ // Implement
+<script>
+gtag('set', 'user_data', {
+  "Name": {{ yourEmailVariable }},
+"Email": {{ yourEmailVariable }},
+"Phone Number": {{ yourPhoneVariable }}
+});
+</script>
   ...
   <button onclick="allConsentGranted()">Yes</button>
   ...
-</body>
+ 
 </body>
 </html>
