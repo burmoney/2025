@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Placoso Streetwear</title>
   <meta name="description" content="Placoso Streetwear – Bold urban fashion. Join the community and never miss a drop.">
+  
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EGXRNCBJH"></script>
   <script>
@@ -13,27 +14,12 @@
     gtag('js', new Date());
     gtag('config', 'G-4EGXRNCBJH');
   </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const countdownEl = document.getElementById("countdown");
-      const dropDate = new Date("2025-07-16T00:00:00").getTime(); // future date
-      setInterval(() => {
-        const now = new Date().getTime();
-        const distance = dropDate - now;
-        if (distance <= 0) {
-          countdownEl.innerHTML = "🔥 Drop is Live!";
-          return;
-        }
-        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((distance % (1000 * 60)) / 1000);
-        countdownEl.textContent = `${d}d ${h}h ${m}m ${s}s`;
-      }, 1000);
-    });
-  </script>
+  
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
   <style>
+    /* Custom styles if needed */
     .video-container {
       position: relative;
       padding-bottom: 56.25%;
@@ -52,6 +38,7 @@
 </head>
 <body class="min-h-screen bg-cover bg-center font-sans text-white" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1dHs2cBu8zMIshEZVYUl0oz_Yhfch6cxMhw&s');">
 
+  <!-- Header -->
   <header class="bg-black bg-opacity-70 text-center p-6">
     <h1 class="text-4xl font-bold uppercase">Placoso Streetwear</h1>
     <p class="text-lg">Urban Style. Bold Statements.</p>
@@ -61,6 +48,7 @@
     </div>
   </header>
 
+  <!-- Main Content -->
   <main class="p-4 flex flex-col items-center space-y-6">
     <!-- YouTube Video -->
     <div class="video-container w-full max-w-xl">
@@ -78,17 +66,39 @@
 
   <!-- WhatsApp Button -->
   <button onclick="openWhatsApp()" class="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-lg hover:scale-105 transition" title="Chat via WhatsApp">
+    <!-- WhatsApp SVG Icon -->
     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
       <path d="M20.52 3.48A11.84 11.84 0 0012 0C5.37 0 0 5.37 0 12c0 2.12.55 4.2 1.58 6.02L0 24l5.98-1.58A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.24-6.15-3.48-8.52zM12 20c-1.89 0-3.74-.5-5.36-1.45l-.38-.23-3.55.94.94-3.55-.23-.38A9.96 9.96 0 012 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10z"/>
     </svg>
   </button>
 
+  <!-- WhatsApp Functionality -->
   <script>
     function openWhatsApp() {
       const msg = encodeURIComponent("Hey! I'm interested in Placoso drops.");
       const number = "+523322147756";
       window.open(`https://wa.me/${number}?text=${msg}`, '_blank');
     }
+
+    // Countdown Timer
+    document.addEventListener("DOMContentLoaded", () => {
+      const countdownEl = document.getElementById("countdown");
+      const dropDate = new Date("2025-07-16T00:00:00").getTime(); // your drop date
+      const intervalId = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = dropDate - now;
+        if (distance <= 0) {
+          countdownEl.innerHTML = "🔥 Drop is Live!";
+          clearInterval(intervalId);
+          return;
+        }
+        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((distance % 1000 * 60) / 1000);
+        countdownEl.textContent = `${d}d ${h}h ${m}m ${s}s`;
+      }, 1000);
+    });
   </script>
 
 </body>
